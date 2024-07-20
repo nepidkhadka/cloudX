@@ -6,6 +6,7 @@ import celestialLogo from "../assets/images/celestial.png";
 import pulseLogo from "../assets/images/pulse.png";
 import apexLogo from "../assets/images/apex.png";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const images = [
   { src: acmeLogo, alt: "Acme Logo" },
@@ -21,14 +22,28 @@ export const LogoTicker = () => {
     <div className="bg-black text-white/70 py-[72px] sm:py-24">
       <div className="container">
         <h2 className="text-xl text-center font-semibold">Trusted by world's most innovative teams</h2>
-        <div className="overflow-hidden mt-10 before:content-[''] after:content-[''] before:absolute after:absolute before:h-full after:h-full before:w-5 after:w-5 relative  after:right-0 before:left-0 before:top-0 after:top-0 before:bg-[linear-gradient(to_right,#000,rgba(0,0,0,0))] after:bg-[linear-gradient(to_left,#000,rgba(0,0,0,0))]">
-          <div className="flex gap-16">
+        <div className="overflow-hidden flex mt-10 before:content-[''] after:content-[''] before:z-10 before:absolute after:absolute before:h-full after:h-full before:w-5 after:w-5 relative after:right-0 before:left-0 before:top-0 after:top-0 before:bg-[linear-gradient(to_right,#000,rgba(0,0,0,0))] after:bg-[linear-gradient(to_left,#000,rgba(0,0,0,0))]">
+          <motion.div
+          transition={{
+            duration:20,
+            ease :"linear",
+            repeat: Infinity,
+
+          }}
+          initial={{translateX:0}}
+          animate={{translateX:"-50%"}}
+          className="flex gap-16 flex-none pr-16">
           {
             images.map(image =>
               <Image src={image.src} alt={image.alt} className="flex-none h-8 w-auto" />
             )
           }
-          </div>
+          {
+            images.map(image =>
+              <Image src={image.src} alt={image.alt} className="flex-none h-8 w-auto" />
+            )
+          }
+          </motion.div>
         </div>
       </div>
     </div>
