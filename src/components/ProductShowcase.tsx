@@ -7,7 +7,7 @@ export const ProductShowcase = () => {
       <div className="container">
           <h2 className="text-center text-5xl sm:text-6xl font-bold tracking-tighter" >Intuitive Interface</h2>
           <p className="text-xl text-center text-white/70 mt-5 max-w-xl mx-auto">Celebrate the joy of accomplishment with an app designed to track your progress.</p>
-          <Image className="mt-14" src={appScreen} alt="Product" />
+          <Image className="mt-14 mx-auto" src={appScreen} alt="Product" />
       </div>
     </div>
   );

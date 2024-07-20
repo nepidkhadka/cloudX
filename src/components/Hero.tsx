@@ -1,8 +1,11 @@
+"use client"
+
 import Link from "next/link";
 import ArrowIcon from "@/assets/icons/arrow-w.svg"
 import CursorImage from "@/assets/images/cursor.png"
 import Message from "@/assets/images/message.png"
 import Image from "next/image";
+import {motion} from "framer-motion"
 
 export const Hero = () => {
   return (
@@ -20,8 +23,13 @@ export const Hero = () => {
           </Link>
         </div>
         <div className="flex items-center flex-col flex-nowrap text-center relative">
-          <Image className="absolute right-0 top-[56px] hidden sm:inline" height={150} width={150} src={CursorImage} alt="Cursor Image" />
-          <Image className="absolute top-[108px] left-0 hidden sm:inline" height={150} width={150} src={Message} alt="Message Image" />
+          <motion.div className="absolute right-0 top-[56px] hidden sm:inline" drag dragSnapToOrigin>
+          <Image draggable="false" className="" height={150} width={150} src={CursorImage} alt="Cursor Image" />
+          </motion.div>
+          <motion.div className="absolute top-[108px] left-0 hidden sm:inline" drag dragSnapToOrigin>
+          <Image draggable="false" className="" height={150} width={150} src={Message} alt="Message Image" />
+          </motion.div>
+
           <h1 className="text-7xl sm:text-9xl font-bold tracking-tighter mt-8">One task <br /> at a Time</h1>
           <p className="text-xl mt-8 max-w-md">With a user-friendly interface and advanced search capabilities, CloudX connects job seekers with employers efficiently, making the job search process smooth and successful. Start your career journey with ClouudX today!</p>
         </div>
